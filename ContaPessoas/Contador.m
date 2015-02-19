@@ -11,11 +11,13 @@
 #import <Foundation/Foundation.h>
 #import "Contador.h"
 
+static Contador *_instance = nil;
 
 @implementation Contador {
     int boy;
     int girl;
 }
+
 
 -(id)init {
     self = [super init];
@@ -39,6 +41,19 @@
 
 -(int)getGirls {
     return girl;
+}
+
+-(int)getTotal {
+    return boy + girl;
+}
+
++(id)instance {
+    if(_instance == nil)
+        _instance = [[Contador alloc] init];
+    else {
+        //todo some error
+    }
+    return _instance;
 }
 
 
