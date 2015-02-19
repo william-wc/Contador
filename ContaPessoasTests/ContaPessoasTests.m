@@ -31,5 +31,13 @@
     XCTAssert(([c getBoys] == 0), @"Pass");
 }
 
+-(void)testContaTotal {
+    Contador *c = [[Contador alloc] init];
+    [c maisUmCueca];
+    [c maisUmCueca];
+    [c maisUmaGata];
+    XCTAssert(([c getTotal] == 3), @"Pass");
+}
+
 
 @end
