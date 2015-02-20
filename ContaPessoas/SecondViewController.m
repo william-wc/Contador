@@ -20,6 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     contador = [Contador instance];
+    contador.delegate = self;
+    [self update];
+}
+
+- (void) update {
+    [self updateTexts];
+}
+
+-(void)updateTexts {
+    _totalBoys  .text = [NSString stringWithFormat: @"%d", [contador getBoys ]];
+    _totalGirls .text = [NSString stringWithFormat: @"%d", [contador getGirls]];
+    _total      .text = [NSString stringWithFormat: @"%d", [contador getTotal]];
 }
 
 
@@ -29,9 +41,7 @@
 }
 
 - (IBAction)click:(id)sender {
-    _totalBoys.text = [NSString stringWithFormat: @"%d", [contador getBoys]];
-    _totalGirls.text = [NSString stringWithFormat: @"%d", [contador getGirls]];
-    _total.text = [NSString stringWithFormat:@"%d", [contador getTotal]];
+    [self updateTexts];
 }
 
 

@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 Vinicius Miana. All rights reserved.
 //
 
-@interface Contador : NSObject 
+#import "CustomDelegate.h"
+
+@interface Contador : NSObject {
+    id <CDelegate>delegate;
+}
 
 - (void)maisUmCueca;
 - (void)maisUmaGata;
@@ -16,6 +20,8 @@
 -(int)getTotal;
 
 +(id)instance;
+
+@property (nonatomic, retain) id <CDelegate>delegate;
 
 @end
 

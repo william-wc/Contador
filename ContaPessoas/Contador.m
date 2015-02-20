@@ -18,6 +18,7 @@ static Contador *_instance = nil;
     int girl;
 }
 
+@synthesize delegate;
 
 -(id)init {
     self = [super init];
@@ -30,9 +31,15 @@ static Contador *_instance = nil;
 
 - (void)maisUmCueca {
     boy = boy + 1;
+    if([delegate respondsToSelector:@selector(update)]) {
+        [delegate update];
+    }
 }
 - (void)maisUmaGata {
     girl++;
+    if([delegate respondsToSelector:@selector(update)]) {
+        [delegate update];
+    }
 }
 
 -(int)getBoys {
