@@ -8,9 +8,7 @@
 
 #import "CustomDelegate.h"
 
-@interface Contador : NSObject {
-    id <CDelegate>delegate;
-}
+@interface Contador : NSObject
 
 - (void)maisUmCueca;
 - (void)maisUmaGata;
@@ -21,7 +19,7 @@
 
 +(id)instance;
 
-@property (nonatomic, retain) id <CDelegate>delegate;
+@property (nonatomic) id<CDelegate> delegate;
 
 @end
 
